@@ -8,4 +8,15 @@ You need some PC or similar device to run Java application.
 You need plugs with Tasmota firmware, where the host is configured to Java application mentioned above.
 
 ## Installation
+
+MQTT Broker
+Java
+Maven
+
+## Running Application
+
+You can run app simple with:
+
+    mvn spring-boot:run
+    
 To be continued...
