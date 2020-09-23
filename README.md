@@ -13,6 +13,7 @@ You need plugs with Tasmota firmware, where the host is configured to Java appli
 - MQTT Broker
 - Java
 - Maven
+- Angular
 
 ## Running Application
 
