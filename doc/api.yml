@@ -1,0 +1,85 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Tasmota Plugs Dashboard
+paths:
+  /plugs:
+    get:
+      summary: List all plugs
+      operationId: listPlugs
+      tags:
+        - plugs
+      responses:
+        '200':
+          description: A array of plugs
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Plugs"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /plugs/toogle/{plugName}:
+    get:
+      summary: Toogle a specific plug
+      operationId: tooglePlug
+      tags:
+        - plugs
+      parameters:
+        - name: plugName
+          in: path
+          required: true
+          description: The name of plug to toogle
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Plug"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+components:
+  schemas:
+    Plug:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        status:
+          type: string
+          enum:
+            - enabled
+            - disabled
+        power:
+          type: number
+    Plugs:
+      type: array
+      items:
+        $ref: "#/components/schemas/Plug"
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
