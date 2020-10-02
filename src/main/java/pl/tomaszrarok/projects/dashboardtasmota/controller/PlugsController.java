@@ -40,14 +40,14 @@ public class PlugsController {
      * @return Expected response to a valid request (status code 200)
      *         or unexpected error (status code 200)
      */
-    @ApiOperation(value = "Toogle a specific plug", nickname = "tooglePlug", notes = "", response = Plug.class, tags={ "plugs", })
+    @ApiOperation(value = "Toggle a specific plug", nickname = "togglePlug", notes = "", response = Plug.class, tags={ "plugs", })
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Expected response to a valid request", response = Plug.class),
             @ApiResponse(code = 200, message = "unexpected error", response = Error.class) })
-    @RequestMapping(value = "/plugs/toogle/{plugName}",
+    @RequestMapping(value = "/plugs/toggle/{plugName}",
             produces = { "application/json" },
             method = RequestMethod.GET)
-    public ResponseEntity<Plug> tooglePlug(@ApiParam(value = "The name of plug to toogle",required=true) @PathVariable("plugName") String plugName) {
+    public ResponseEntity<Plug> togglePlug(@ApiParam(value = "The name of plug to toggle",required=true) @PathVariable("plugName") String plugName) {
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
     }
 

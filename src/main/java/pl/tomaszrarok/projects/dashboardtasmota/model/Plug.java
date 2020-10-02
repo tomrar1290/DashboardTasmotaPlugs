@@ -10,4 +10,16 @@ public class Plug {
     Double power;
     PlugStatus status;
 
+    public void toggle() {
+        if( status != null) {
+          switch (status){
+              case ENABLED:
+                  status = PlugStatus.DISABLED;
+                  break;
+              case DISABLED:
+                  status = PlugStatus.ENABLED;
+                  break;
+          }
+        }
+    }
 }
